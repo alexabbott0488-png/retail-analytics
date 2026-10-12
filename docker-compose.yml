@@ -1,0 +1,35 @@
+services:
+  core:
+    build: .
+    container_name: retailsense-core
+    environment:
+      - EDITION=${EDITION:-operator}
+      - TZ=America/New_York
+      - GRAFANA_URL=http://localhost:3000
+    volumes:
+      - ./configs:/app/configs:ro,z
+      - ./data:/app/data:z
+      - ./models:/app/models:ro,z
+    ports:
+      - "8080:8080"    # UI
+      - "8000:8000"    # API
+      - "8001:8001"    # Metrics
+    restart: unless-stopped
+    depends_on:
+      - mqtt
+    # Example device for camera (adjust as needed)
+    # devices:
+    #   - /dev/video0:/dev/video0
+
+  mqtt:
+    image: eclipse-mosquitto:2
+    container_name: retailsense-mqtt
+    volumes:
+      - ./mqtt/config:/mosquitto/config:ro,z
+      - mqtt_data:/mosquitto/data
+    ports:
+      - "1883:1883"
+    restart: unless-stopped
+
+volumes:
+  mqtt_data:

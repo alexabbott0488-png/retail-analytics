@@ -1,0 +1,21 @@
+edition: operator
+privacy:
+  blur_faces: true
+  store_raw_audio: false
+  anonymize_tracks: true
+sensors:
+  camera:
+    enabled: true
+  audio:
+    enabled: false
+  bluetooth:
+    enabled: false
+  environmental:
+    enabled: true
+fusion:
+  enable_prediction: true
+  max_prediction_seconds: 5
+ui:
+  show_grafana_link: false
+logging:
+  level: info

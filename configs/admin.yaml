@@ -1,0 +1,12 @@
+ui:
+  mode: admin
+  show_debug: false
+  allow_zone_edit: true
+  show_raw_sensors: false
+  show_grafana_link: true
+  enable_user_management: true
+sensors:
+  camera: true
+  audio: true
+  bluetooth: true
+  environmental: true

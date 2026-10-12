@@ -1,0 +1,17 @@
+groups:
+  - name: retailsense
+    rules:
+      - alert: HighFusionLatency
+        expr: histogram_quantile(0.95, rate(retailsense_fusion_latency_seconds_bucket[5m])) > 0.2
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Fusion latency high"
+      - alert: SensorErrorSpike
+        expr: rate(retailsense_sensor_errors_total[5m]) > 5
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Sensor error rate elevated"

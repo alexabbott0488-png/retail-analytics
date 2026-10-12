@@ -1,0 +1,12 @@
+ui:
+  mode: operator
+  show_debug: false
+  allow_zone_edit: false
+  show_raw_sensors: false
+  show_grafana_link: false
+alerts:
+  enable_sound: true
+  auto_dismiss_seconds: 30
+fusion:
+  show_confidence: false
+  max_prediction_seconds: 3

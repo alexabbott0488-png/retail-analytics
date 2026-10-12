@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "retailsense"
+    static_configs:
+      - targets: ["host.docker.internal:8001"]   # Adjust for your network
+        labels:
+          app: "retailsense"
+    metrics_path: /metrics
+
+rule_files:
+  - "alerts.yml"

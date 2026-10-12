@@ -1,0 +1,12 @@
+ui:
+  mode: developer
+  show_debug: true
+  allow_zone_edit: true
+  show_raw_sensors: true
+  show_grafana_link: true
+  enable_plugin_reload: true
+logging:
+  level: debug
+fusion:
+  show_confidence: true
+  expose_raw_tracks: true
